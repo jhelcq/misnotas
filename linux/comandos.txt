@@ -142,7 +142,7 @@ wget [opciones] url
 	-E	coloca extension .html sino lo tiene el archivo
 	-r 	descarga recursivamente el archivo
 	-b	descarga en 2do plano
-	-l	la profundidad de la recursividad
+	-l number	la profundidad de la recursividad
 	-k	convierte las rutas de los recursos descargados a rutas relativas
 
 dpkg --add-architecture; adiciona una arq. para instalar paquetes de la misma
@@ -153,3 +153,22 @@ ldd ejecutable; muestra las dependencias del programa ejecutable
 lsmod	; muestra los modulos del kernel actualmente cargados
 modprobe modulo	; carga un modulo
 modprobe -r modulo	;	quita un modulo
+
+fdisk -l ; muestra los dispositivos en /dev
+
+apt-get autoremove	; elimina paquetes herfanos
+
+ps
+	-e	; muestra informacio basica de procesos
+	-f	; show informacion con mas detalles como tiempo en el cual se inicio, usuario q ejecuto, etc.
+	-l	; muestra la prioridad del proceso en la columna NI
+	-F	; muestra con mas informacion como: RSS(memoria), C(%uso de cpu), S(estado R running, S sleeping), IN prioridad, TIME tiempo en el cpu, STIME hora de inicio
+
+nice -n prioridad comando	; establece la prioridad(de -20(mas alta) a 19(mas baja)) del proceso(creo que solo puede ser establecido por el su)
+
+kill
+	-codigo PID_proceso	; da señal(matar, detener, continuar, etc) a proceso
+	-l	; lista las posibles señales que se puede dar a un proceso
+
+renice
+	nueva_prioridad PID_proceso	; coloca nueva prioridad a proceso en tiempo real

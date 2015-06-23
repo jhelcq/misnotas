@@ -1,1 +1,10 @@
 psql -U username -W -h host_servidor	; se conecta a la consola del usuario 'username' y pide contraseña(-W)
+
+\i ruta_archivo	;	Ejecuta un script desde la consola de postgres
+
+psql base_datos<ruta_archivo	;	Ejecuta un script sql desde la linea de consola
+
+Comandos en la consola de postgres
+	\c base_datos	; conectar a base de datos
+	\d tabla	; equivalente a show columns
+	\d 	; equi a show tables;

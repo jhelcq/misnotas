@@ -18,3 +18,7 @@ Ademas verificamos si no tenemos ningun problema con la habilitacion de la virtu
 
 Y verficamos si los modulos del kernel para kvm estan cargados:
 	lsmod	; debe mostrar los modulos kvm y kvm_intel
+
+---------- AWESOME  ----------
+Archivo de themes
+	/usr/share/awesome/themes
