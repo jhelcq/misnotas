@@ -1,0 +1,4 @@
+
+set -sg escape-time 0; quita el retraso al salir del modo insercion a modo normal en tmux
+
+Ctrl+ b [; sirve para activar el scroll usando re pag y av pag. Para salir de este modo apretar q

@@ -1,0 +1,6 @@
+----------------MongoDB-------------------
+//para iniciar, detener y reiniciar mongodb. Una vez iniciadose escuchara por defecto en el puerto 27017 en el host 127.0.0.1 
+sudo /etc/init.d/mongod [start|stop|restart]
+
+//el archivo de registro es 
+/var/log/mongodb/mongod.log

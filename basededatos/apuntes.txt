@@ -1,0 +1,16 @@
+source url_archivo // para ejecutar script de sql
+
+//para seleccionar un db
+use nombre_db;
+
+//para borra una base de datos
+drop database nombre_db;
+
+//para cambiar el juego de caracteres y la colleccion a una base de datos
+ALTER DATABASE nombre_db CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+//para cambiar el juego de caracteres y la colleccion a una tabla
+ALTER TABLE nombre_tabla CONVERT TO CHARACTER SET uft8 COLLATE utf8_general_ci;
+
+//mostrar propiedades a detalle de tabla
+SHOW FULL columns from nombre_tabla;

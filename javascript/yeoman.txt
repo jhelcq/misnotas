@@ -1,0 +1,19 @@
+npm install -g yo; instala yeoman globalmente en /usr/local/bin
+Instala un generador: generator-webapp
+
+	npm install -g generator-webapp; este generador se instalara en /usr/local/lib/node_modules con el nombre de generator-webapp
+
+Generar la version de distribucion de la aplicacion:
+	grunt build; crea una carpeta dist con toda la version minificada y concatenada de la aplicacion
+
+
+Iniciar el servidor liveroad
+	grunt server; inicia un servidor y lanza la aplicacion en el navegador(pero cuando lo lanza no se refresca, asi que se debe entrar nomas 127.0.0.1:9000)
+
+------CREANDO UNA APLICACION BACKBONE CON YEOMAN -----
+Instalar el generador de backbone
+	npm install -g generator-backbone; se instalara en la carpeta /usr/local/lib/node_modules
+
+Crea una aplicacion de backbone
+	yo backbone
+

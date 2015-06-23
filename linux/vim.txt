@@ -1,0 +1,17 @@
+//para comentar todad las lineas con #
+	:%s/^/# 
+Para comentar desde una nro de linea hasta donde estas el cursor
+	:12,.s/^/#/g
+
+Para descomentar desde una nro de linea hasta donde estas el cursor
+	:12,.s/^#//g
+
+Para que se pueda ejecutar funciones de bash definidas en .bashrc en vim se debe adicionar a .vimrc esta linea:
+	set shell=/bin/bash\ -i #se debe colocar -i si o si o no dara
+
+set ttimeoutlen= 50; establece el retardo de para que se active el modo normal(apretando ESC) desde el modo insercion en 50ms
+-----------------------------------------
+Comandos
+	:help ;obtener ayuda
+	:intro ;muestra el mensaje de bienvenida inicial
+Comando u ; deshace cualquier cosa que se hizo en el texto

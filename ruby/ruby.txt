@@ -1,0 +1,34 @@
+Crear un proyecto en rails:
+	- Con bd sqlite por defecto:
+		rails nombre_proyecto ;nombre_proyecto sera una carpeta que se crea con la estructura del proyecto
+	- Con bd mysql
+		rails new nombre_proyecto -d=mysql
+Crear  
+
+Ejecutar el servidor de ruby
+	rails server ; se ejcuta el servidor en modo desarrollo, es decir las bd configuradas para modo desarrollo
+
+
+---------------- Instalando RVM ----------------
+Instalando la version estable de RVM
+	curl -sSL https://get.rvm.io | bash -s stabll ; esto descargara un bash la cual clonara de un repositorio de git el instalador, ademas esto instalara solo para el usuario rvm en la carpeta .rvm
+
+Recargando los archivos de configuracion:
+	source ~/.rvm/scripts/rvm ;una vez que se haya instalado rvm se configura los archivos de configuracion de shell del usuario agregando lineas de configuracion y este comando recargara esos archivos, asi la funcion de rvm estara disponible como se hara la prueba en el siguiente paso
+
+Probando la instalacion de RVM:
+	type rvm | head -n 1
+	debe mostrar: rvm is a function
+
+Instalando ruby:
+	rvm install 2.0.0 ; esto instalara ruby solo para el usuario actual, ademas automaticamente con esto se instalaran las dependencias del SO que se necesitan para que funcione ruby
+
+	rvm use 2.0.0; cambia que version de ruby se usara
+	rvm use 2.0.0 --default ; se usara por defecto esta version de ruby en el rvm
+
+	gem list; lista las gemas instaladas
+	gem server; ejecuta el servidor de gemas
+	gem install rails --version 4.0.0 --no-ri --no-rdoc; se instala rails version 4.0.0
+	gem list --local rails; muestra que version de rails tenemos instalado	
+
+	rails new demo; creando proyecto llamado 'demo'

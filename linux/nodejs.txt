@@ -1,0 +1,2 @@
+//Carpeta de instalacion de modulos generales de node 
+/usr/local/lib/node_modules/
