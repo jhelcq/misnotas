@@ -47,12 +47,8 @@ git remot­e add origi­n git@g­ithub.com:­jhocolque/­try_git.gi­t
 	git merge origin/master
 	git push origin master
 
+Mostrando el log de commits con info resumida
+	git log --pretty=oneline
 
-
-
-
-
-
-
-
-
+Para recuperar un archivo de un commit concreto
+	git show HASH_GIT:ruta_a_archivo_a_recuperar> ruta_a_archivo_recuperado
