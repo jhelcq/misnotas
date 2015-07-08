@@ -1,0 +1,86 @@
+deb http://ftp.us.debian.org/debian/ wheezy main contrib; repositorio oficial de debian wheezy
+
+------------ Para vim -----------------
+- El archivo de configuracion '.vimrc' debe ir en ~(es decir en el directorio por defecto del usuario)
+	-los comentarios de este archivo se realizan con '"'
+- La carpeta donde se encuentran los plugins es '.vim' y este mismo esta en ~
+	
+----- colors ------
+- Los archivos de temas de vim deben estar en '~/.vim/colors', estos archivos seran de extension 'vim' 
+- Se configuarara en '.vimrc' el tema asi:
+	colorscheme nombre_tema; nombre tema debe ir el nombre del archivo del tema pero sin la extension 'vim'
+
+----- pathogen -----
+- Crear estos directorios dentro de '.vim': 'autoload' y 'bundle'
+- Dentro de 'autoload' clonar 'pathogen' lo cual generara un archivo nombrado 'pathogen.vim'
+- En '.vimrc' colocar el siguiente comando:
+	execute pathogen#infect()
+- Para verificar que pathogen se instalo correctamente ejecutar en vim:
+	:Helptags; no deba dar ningun error
+
+----- snipmate -----
+- Dentro de 'bundle' clonar tlib_vim, vim-addon-mw-utils, vim-snipmate-master; pues snipmate depende de los anteriores dos plugins 
+- Instalar snippets para snipmate(pues snipmate no viene con snippets) para ello clonamos en 'bundle' vim-snippets
+- Luego para ver si funciona ejecutamos un snippet, por ejemplo de 'for' para javascript y el for se deberia autocompletarse
+- Para ver la ayuda de snipmate ejecutamos en vim: 
+	:help snipmate; esto nos deberia mostrar la ayuda de snipmate
+----- syntastic ----
+- Clonar en 'bundle' syntastic
+- Para ver si se instalo correctamente ejecutar en vim:
+	:SyntasticInfo; en cuyo caso como no no se instalo ninguna herramienta para detectar sintaxis aparecera:
+		Syntastic info for filetype: javascript
+		Available checkers:
+		Curren active checkers(s):
+- Instalar npm(para ello instalamos node.js, ya que al instalar el mismo se instalar npn), una vez hecho ejecutamos:
+	sudo npm install -g jshint; tomar mucha atencion a sudo. Asi tendremos esta carpeta en: 'usr/local/lib/node_modules/jshint'
+- Verificamos en vim que tenemos la herramienta de sintaxis jshint instalada para javascript ejecutando:
+	:SyntasticInfo; lo cual deberia de mostrar:
+		Syntastic info for filetype: javascript
+		Available checkers: jshint
+		Curren active checkers(s): jshint
+- Creamos un archivo de configuracion de jshint: '~/.jshintrc'
+----- tmux ------
+- Crear arhivo de configuracion: '~/.tmux.conf'
+- Para forzar a que tmux se ejecute con 256 colores ejecutar:
+	tmux -2
+------ node.js ---------
+- Para instalar clonamos el codigo de node.
+- ingresamos a la carpeta donde esta el codigo
+- debemos instalar algunos paquetes de otro modo al ejecutar ./configure, no saldra un error: "Node.js configure errorÑ No acceptable C compiler found!"
+- Instalamos curl, build-essential, python, openssl y libssl-dev
+- Dentro de la carpeta donde esta el codigo ejecutamos:
+	./configure; nos deberia mostrar un objeto json
+- Ejecutamos:
+	make; esto compilara todo el codigo fuente
+- Por ultimo ejecutamos:
+	make install; instalara node y npm en /usr/local/bin ademas se creara /usr/local/lib/node_modules donde se encontrar los modulos globales de node(por el momento solo npm) 
+
+------- PARA GRUB --------
+//ADICIONAR WINDOWS7 A GRUB CUANDO ESTA INSTALADO LINUX PERO NO SE AGREGO WINDOWS7 A GRUB
+
+//instalar grub2
+apt-get install grub2
+
+//instalar os-prober
+apt-get install os-prober
+
+//ejecutamos os-prober que reconocera automaticamente que sistemas operativos existen en nuestra pc
+os-prober
+
+//Ahora actualizamos el grub
+grub-mkconfig -o /boot/grub/grub.cfgz
+
+------- PARA BIND --------
+- Ingresar a /etc/bind/named.conf.local
+- Agregar un nueva entrada al arhivos 
+- Crear un nuevo archivo de configuracion para el host creado anteriormente algo como "/etc/bind/zona_paginax/db.paginx.com" y modificarlo
+- Reiniciamos el demonio bind9:
+	/etc/init.d/bind9 restart
+- Verifica si el sitio virtual ha sido dado de alta:
+	nslookup www.paginax.com
+- Creamos el arvhivo de configuracion en apache2 para el sitio creado en /etc/apache2/sites-available
+- Reiniciamo apache:
+	/etc/init.d/apache2 restart
+- Damos de alta en site-enabled el archivo creado en sites-available: 
+	a2ensite nombre_archivo
+- Ya esta e ingresamos a www.pagin3.com

@@ -1,0 +1,155 @@
+:
+PARA DISPOSITIVOS
+
+mount; muestra todos los dispositivos montados
+
+--------------------------------------------------
+nano ; editor de texto para archivos
+man nombre_comando; sirve para obtener ayuda de un comando
+
+PARA PAQUETES
+
+/etc/apt/sources.list; archivos donde se encuentra las direcciones de los repositorios
+
+aptitude show paquete; muestra informacion detallada de un paquete
+
+aptitude search expresión; Busca un paquete por nombre y/o expresión
+
+apt-setup; permite seleccionar de donde queremos instalar los paquetes
+
+apt-get install nombre_del_paquete; instala el paquete seleccionado
+aptitude install paquete; instala el paquete seleccionado
+
+dpkg --get-selections; Muestra todos los paquetes instalados en el sistema. 
+
+dpkg -l| grep nom_pag; busca todos los paquetes instalados y filtra solo los relacionados con nom_pag
+
+dpkg -i nombre_paquete; instala un paquete deb
+
+dpkg -P nombre_paquete; purga y borra un paquete deb
+
+apt-get remove nom_pag; remueve un paquete
+
+apt-get remove --purge nom_pag; elimina los archivos de confighuracion
+
+apt-get install; instala un paquete
+
+apt-get install -f; arreglar dependencias rotas
+
+apt-cache show nombre_paquete; muestra detalles de un paquete y al principio version del paq. disponible
+
+apt-cache depends nom_paq; muestra las dependencias de un paquete
+
+apt-cdrom add; agrega un nuevo disco al repositorio sources.list
+
+-----------------------------------------------
+
+//descomprime un archivo comprimido en formatto tar.bz2
+tar -xvjf nombreArchivo.tar.bz2
+
+//descomprime un archivo comprimido en formatto tar.bz2 en otra carpeta con nombre ya predeterminado por el archivo tar
+tar -xvjf nombreArchivo.tar.bz2 -C /opt
+
+//mover carpeta a /opt/nombre_carpeta_destino donde esta el programa a instalar
+mv nombre_carpeta /opt/nombre_carpeta_destino
+
+//crea enlace simbolico a una carpeta
+ en /usr/local
+ln -s /opt/sublime-text-2/ /usr/local/sublime-text-2
+//crea un enlace simbolico de una aplicacion /usr/local/bin
+ln -s /opt/sublime-text-2/sublime_text /usr/local/bin/sublime_text
+
+
+TECLAS RAPIDAS
+ctrl+alt+d mostrar escritorio
+
+//terminales negras 
+ctrl+ alt+ f(1-5)
+
+//modo visual
+ctr+ alt+ f7
+
+ALGUNAS COSAS PARA INSTALAR XAMPP
+//cambiar permisos para el instalador
+chmod 755 nombre_intalador.run
+
+//ejecuta un instalador
+./nombre_instalador.run
+
+//despues de instalar iniciar xampp
+/opt/lampp/lampp start
+
+//desintala xampp(lampp)
+rm -rf /opt/lamp
+
+//despues colocar permisos de 755 a la carpeta /opt/lampp/htdocs/ de forma recursiva
+//por el momento con 755 es suficiente tbn se puede hacer con 777 pero creo por cuestiones de seguridad no es adecuado iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+chmod -R 755 /opt/lampp/htdocs/
+
+PARA COMANDOS
+//para copiar carpetas, con -r copia carpetas con contenido
+cp -r origen destino
+
+//activar contraseña de root en ubuntu
+//se coloca primero la contraseña del usuario actual y luego en dos ocasiones del superusuario
+sudo -u root passwd
+
+//abrir archivo de repositorios con editor nano
+nano /etc/apt/sources.list
+
+---------------- OTRAS COSILLAs --------------------
+halt; shutdown -h now;  apaga el sistema inmediatamente
+shutdown -h 5; apaga el sistema despues de 5 minutos
+
+reboot; shutdown -r now;  reinicia el sistema inmediatamente
+shutdown -r 5; reincia el sistema despues de 5 minutos
+
+unzip -d directorio_destino archivo_zip.zip; descomprime un archivo zip dentro de diretorio_dest
+ino
+
+tar xzvf <nombre_archivo>.[tar.gz|tgz]; descomprime en la  carpeta actual
+
+cat /dev/cdrom2>nombre_disco_virtual.iso; crea una imagen iso de un disco que se encuentra referenciado por /dev/cdrom2, al utilizar la referencia en media no se permite crear el iso.
+tar xzvf <nombre_archivo>.[tar.gz|tgz]; descomprime en la  carpeta actual
+
+tar xzvf <nombre_archivo>.[tar.gz|tgz]; descomprime en la  carpeta actual
+
+tar xzvf <nombre_archivo>.[tar.gz|tgz]; descomprime en la  carpeta actual
+
+cat /dev/cdrom>nombre_archivo.iso; crea una imagen iso a partir de un disco. /dev/cdrom hace referencia al disco no debe hacerse referncia con /media no funcionara
+
+mount -t iso9660 -o ro,loop nombre_archivo.iso /nombre_carpeta; monta un archivo iso en una carpeta
+
+mount -o loop=/dev/loop0 nombre_archivo.mdf nombre_carpeta; monta una imagen mdf en una carpeta
+
+deb file:/media/nombre_carpeta wheezy main contrib; esto agrega al repositorio un disco virtual 
+
+mkntfs -f -L nombre_unidad /dev/sdX ; debe estar instalado el paquete ntfsprogs. Formatea un disco(refereciado por /dev/sdX) con formato NTFS de manera rapida(-f) y con label(-L) nombre_unidad.
+
+df ; Lista todad las unidades montadas y cual su ubicacion.
+
+//acento grave: ` una tecla a la derecha de 'P' seguido de space o dos veces la tecla a la derecha de 'P'(aunque esta segunda opcion en vim no da) 
+//apostrofe: ' una tecla a la derecha de '=' o una tecla a la derecha de 'Ñ'+ spacio
+
+genisoimage -R -J -o nombre_archivo.iso [carpeta o disco];crea imagenes iso de una carpeta o de un disco
+
+fc -s xx; ejecuta el comando mas reciente que empieza con cualquier cantidad de letras escritas
+
+wget [opciones] url
+	-c	continua la descarga si existe interrupcion
+	-v	muestra el progreso de las descargas
+	-p	descarga los archivos css, js, imagesnes, etc.
+	-E	coloca extension .html sino lo tiene el archivo
+	-r 	descarga recursivamente el archivo
+	-b	descarga en 2do plano
+	-l	la profundidad de la recursividad
+	-k	convierte las rutas de los recursos descargados a rutas relativas
+
+dpkg --add-architecture; adiciona una arq. para instalar paquetes de la misma
+dpkg --add-architecture; adiciona una arq. para instalar paquetes de la misma
+
+ldd ejecutable; muestra las dependencias del programa ejecutable
+
+lsmod	; muestra los modulos del kernel actualmente cargados
+modprobe modulo	; carga un modulo
+modprobe -r modulo	;	quita un modulo

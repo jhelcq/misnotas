@@ -1,0 +1,9 @@
+Version de CentOS:
+	cat /etc/redhat-release
+
+Ver paquetes instalados en CentOS:
+	rpm -qa
+
+Carpeta de repositorios:
+	/etc/yum.repos.d
+

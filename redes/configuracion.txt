@@ -1,0 +1,25 @@
+----ifconfig eth0 192.168.0.150 mask 255.255.255.0 
+
+ifconfig eth0 up
+
+
+----agregamos la puerta de enlace predeterminada:
+
+
+route add default gw 192.168.0.1
+
+
+----con esto probamos si hay ping a 8.8.8.8(dns de google) si funciona ahora configuramos la resolucion de dominios en:
+
+
+/etc/resolv,conf
+
+
+----agregamos los ip de dns de google tanto el primario como el secundario
+
+
+nameserver 8.8.8.8
+nameserver 8.8.8.4
+
+
+----luego hacemos ping probando a: ping ww.facebook.com  y tendria que haber respuesta.

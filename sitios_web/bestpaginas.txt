@@ -1,0 +1,2 @@
+//parece buena pagina con blogs interesantes
+http://blog.miguelgrinberg.com/

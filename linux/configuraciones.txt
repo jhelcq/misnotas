@@ -1,0 +1,29 @@
+---------- KVM ----------
+Verificamos si nuestro procesador tiene el soprte para maquinas virtuales:
+	grep --color vmx|svm /proc/cpuinfo
+
+Instalar qemu-kvm(tbn se instalara kvm), libvirt-bin(el demonio de virtualizacion) y virt-manager(la interfaz grafica para manejar las maquinas virtuales):
+	apt-get install qemu-kvm libvirt-bin virt-manager
+
+Adicionamos el usuario actual al grupo libvirt para que pueda usar la maquina virtual:
+	adduser usuario libvirt
+
+Y listo ejecutamos virt-manager para crear la maquina virtual y usarla
+
+Ademas verificamos si no tenemos ningun problema con la habilitacion de la virtualizacion desde la bios:
+	dmesg| grep kvm	; si hay problema mostrara 'kvm: disabled by bios'
+
+Y verficamos si los modulos del kernel para kvm estan cargados:
+	lsmod	; debe mostrar los modulos kvm y kvm_intel
+
+---------- SUDO ----------
+El archivo de configuracion de sudo se encuentra en 
+	/etc/sudoers
+Añadir el usuario como sudo en la seccion '#User privilegies admin..' 
+	nombre_de_usuario ALL(ALL)ALL
+
+---------- USB BOOTEABLE DEBIAN ----------
+
+Sacar un iso del dvd de instalacion y copiarlo directamente al usb(no a una particion)
+	cp debian.iso> /dev/sdX
+	sync

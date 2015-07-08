@@ -1,0 +1,26 @@
+//obtiene cantidad de registros devueltos por SELECT
+mysql_num_rows( resultset )
+
+//obtiene cantidad de registros afectados por INSERT, UPDATE, DELETE, el paramentro es una coneccion a bd, sino se lo da es la ultima abuierta
+int mysql_affected_rows ( [ resource $link_identifier = NULL ] ) 
+
+//desplaza el apuntador interno de un resultset de consulta de SELECT a la fila especificada
+bool mysql_data_seek ( resource $result , int $row_number )
+
+//parsea la $cadena(ojo: que esta en formato de query string de url) en un arrayt asociativo
+parse_str( $cadena, $peticion);
+
+//decodifica un string json a un array asociativo(si $assoc= true)
+json_decode( string $json, bool $assoc= false );
+
+//retorna un string codificado en JSON en una variable PHP, si se le pasa el segundo parametro a true devuelve un array asociativo 
+//donde se parseo el string JSON en la variable $json las claves y valores deben estar encerrados por comillas dobles, sin
+//ser necesarios los valores null o numeros
+json_decode ( string $json [, bool $assoc = false [, int $depth = 512 [, int $options = 0 ]]] )
+
+
+//variable $_SERVER
+ clave 'REQUEST_METHOD' metodo que se utilizo para enbviar datos al servidor POST, GET, PUT, DELETE
+
+//recupera una fila de resultado como un array numerico
+array mysql_fetch_row( source $result ) 

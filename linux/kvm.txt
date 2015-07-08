@@ -1,0 +1,62 @@
+BRIDGE INTERFACES
+
+auto eth0
+iface eth0 inet static
+
+auto br0
+iface br0 inet static
+        address 192.168.55.19
+        network 192.168.55.0
+        netmask 255.255.255.0
+        gateway 192.168.55.1
+        #dns-nameservers 200.87.100.10
+        bridge_ports eth0
+        bridge_fd 9
+        bridge_hello 2
+        bridge_maxage 12
+        bridge_stp off
+
+SOURS.LIST
+
+deb http://repositorio.geo.gob.bo/ftp.us.debian.org/debian/ wheezy main contrib non-free
+deb http://repositorio.geo.gob.bo/ftp.us.debian.org/debian/ wheezy-updates main contrib non-free
+deb http://repositorio.geo.gob.bo/security.debian.org/ wheezy/updates main contrib non-free
+
+sudo apt-get install bridge-utils
+sudo nano /etc/sysctl.conf
+	net.bridge.bridge-nf-call-ip6tables = 0
+	net.bridge.bridge-nf-call-iptables = 0
+	net.bridge.bridge-nf-call-arptables = 0
+
+sudo sysctl -p /etc/sysctl.conf 
+sudo apt-get install kvm qemu-kvm libvirt-bin virtinst
+
+sudo adduser `id -un` libvirt
+sudo adduser `id -un` kvm
+
+mkdir jan-kvms
+chown -R libvirt-qemu:kvm jan-kvms/
+sudo chmod -R 777 jan-kvms/
+
+sudo apt.get install virt-manager
+
+ISO_PATH=/home/jan/jan-kvms/debian-7.6.0-amd64-CD-1.iso
+KVM_HOSTNAME=demo
+KVM_RAM=512
+KVM_CPU=1
+KVM_DISCO=5
+KVM_PATH=/home/jan/jan-kvms/demo.img
+sudo virt-install --connect=qemu:///system --name=${KVM_HOSTNAME} --ram=${KVM_RAM} --vcpus=${KVM_CPU} --check-cpu --disk path=${KVM_PATH},size=${KVM_DISCO},sparse=true --cdrom=${ISO_PATH} --vnc --noautoconsole --os-type=linux --os-variant=debianwheezy --accelerate --network bridge=br0 --hvm --autostart
+
+
+sudo virt-install --connect=qemu:///system --name=debian-7.1.0 --ram=2048 --vcpus=1 --check-cpu --disk path=/media/f/so_virtuales/debian-7.1.0.img,size=35,sparse=true --cdrom=/media/c/debian-7.1.0-amd64/dvd1/Debian-7.1.0-amd.mdf --vnc --noautoconsole --os-type=linux --os-variant=debianwheezy --accelerate --network bridge=br0 --hvm --autostart
+
+
+
+
+
+
+
+
+
+

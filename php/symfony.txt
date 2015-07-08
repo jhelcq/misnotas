@@ -1,0 +1,25 @@
+- Para crear un bundle te debes ubicar en la carpeta Symfony(donde esta la carpeta app, src, web, vendor) y ejecutar el comando
+		php app/console generate:bundle --namespace=Acme/HelloBundle --format=yml
+	Ademas despues de esto en la guia debes darle la ruta de Symfony/src para que cree ahi dentro el bundle
+Para que funcione pdo de mysql desde symfony se debe instalar php5-mysql de los respositorios de debian
+
+11pp/console generate:bundle --namespace=Acme/HelloBundle --format=yml
+
+use Symfony\Component\HttpFoundation\Response;
+
+
+use Symfony\Component\HttpFoundation\JsonResponse;
+
+php app/console assets:install directorio [--symlink]
+
+{{ asset('css/contact.css') }}
+
+{% extends '::base.html.twig' %}
+
+Para generar getter y setter
+	php app/console doctrine:generate:entities Acme/StoreBundle/Entity/Product
+
+Para crear bd
+	php app/console doctrine:database:create
+Para crear tablas
+	php app/console doctrine:schema:update --force

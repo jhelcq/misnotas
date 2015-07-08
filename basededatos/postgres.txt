@@ -1,0 +1,1 @@
+psql -U username -W -h host_servidor	; se conecta a la consola del usuario 'username' y pide contraseña(-W)

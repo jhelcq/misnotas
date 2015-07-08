@@ -1,0 +1,14 @@
+- Ingresar a /etc/bind/named.conf.local
+- Agregar un nueva entrada al arhivos 
+- Crear un nuevo archivo de configuracion para el host creado anteriormente algo como "/etc/bind/zona_paginax/db.paginx.com" y modificarlo
+- Reiniciamos el demonio bind9:
+	/etc/init.d/bind9 restart
+- Verifica si el sitio virtual ha sido dado de alta:
+	nslookup www.paginax.com
+- Creamos el arvhivo de configuracion en apache2 para el sitio creado en /etc/apache2/sites-available
+- Reiniciamo apache:
+	/etc/init.d/apache2 restart
+- Damos de alta en site-enabled el archivo creado en sites-available: 
+	a2ensite nombre_archivo
+- Ya esta e ingresamos a www.pagin3.com
+
