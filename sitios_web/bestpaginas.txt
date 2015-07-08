@@ -1,2 +1,5 @@
 //parece buena pagina con blogs interesantes
 http://blog.miguelgrinberg.com/
+
+//blog de un programador con blog, sus proyectos,etc.
+www.alvaroremesal.net

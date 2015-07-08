@@ -27,3 +27,7 @@ Añadir el usuario como sudo en la seccion '#User privilegies admin..'
 Sacar un iso del dvd de instalacion y copiarlo directamente al usb(no a una particion)
 	cp debian.iso> /dev/sdX
 	sync
+
+---------- AWESOME  ----------
+Archivo de themes
+	/usr/share/awesome/themes

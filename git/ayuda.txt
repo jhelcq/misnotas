@@ -1,0 +1,54 @@
+//para clonar un repositorio
+
+git clone git@github.com:jhocolque/nombrerep_git.git
+
+//configurar el nombre y correo
+
+git config --global user.name 'jhocolque'
+git config --global user.email jhoelicq@hotmail.com
+
+
+//el archivo debe estar creado en directorio 'working 'para colocarlo al 'Index' como propuesta con:
+git add 'nombre_archivo.xxx'
+
+
+//Luego lo subimos al 'HEAD' del repositorio local
+git commit -m 'comentario...'
+git commit -a   //cuando se modifio un solo archivo se puede lleva r al HAED directaente sin pasar por index
+
+//PARA REPOSITORIO REMOTO
+
+//ahora subimos los cambios al repositorio remoto con:
+git push origin master
+
+//para actualizar cambios
+git pull
+
+//
+
+
+git remot­e add origi­n git@g­ithub.com:­jhocolque/­try_git.gi­t
+
+ ---- PARA ADICIONAR ARCHIVOS A UN REPOSITORIO NUEVO(VACIO) ----
+
+-  entramos a la carpeta que queremos subir a github
+- ejecutamos
+	git init
+- Agregamos de working dir a index(proceso add), todos los archivos de la carpeta
+	git add .
+- Agegamos de index a head(proceso commit)
+	git commit -m 'commit mensaje'
+- para conectarse al repositorio remoto(en el caso de que no se haya clonado ninguno):
+	git remote add origin git@github.com:nombre_usuario/nombre_repositorio.git
+- Subimos:
+	git push -u origin master
+  pero si alguien subio cambio al servidor se debe hacer primero:
+	git fetch origin
+	git merge origin/master
+	git push origin master
+
+Mostrando el log de commits con info resumida
+	git log --pretty=oneline
+
+Para recuperar un archivo de un commit concreto
+	git show HASH_GIT:ruta_a_archivo_a_recuperar> ruta_a_archivo_recuperado
