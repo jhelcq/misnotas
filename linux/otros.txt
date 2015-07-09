@@ -1,0 +1,2 @@
+rtlwifi/rt18192cfw.bin 
+rtl_nic/rtl8105e-1.fw
