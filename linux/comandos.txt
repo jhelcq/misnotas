@@ -172,3 +172,9 @@ kill
 
 renice
 	nueva_prioridad PID_proceso	; coloca nueva prioridad a proceso en tiempo real
+
+mkfs.vfat -F 32 -n etiqueta_usb /dev/sdbN ; formatea una unidad con fat32 y una etiqueta
+
+mkfs.ext4 /dev/sdbN : formatea una unidad en formato ext4(linux)
+
+fdisk /dev/sdL ; utilidades para particionar un disco sdL, donde L es una letra

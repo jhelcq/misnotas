@@ -1,0 +1,5 @@
+http://casperjs.org   ; framework para scraping
+
+watir  ; igual que casperjs
+
+rickshaw ; para hacer graficos de señales, tendencias en web 
