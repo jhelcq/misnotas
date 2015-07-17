@@ -11,4 +11,5 @@ http://blog.miguelgrinberg.com/
 //blog de un programador con blog, sus proyectos,etc.
 www.alvaroremesal.net
 
-
+//algunas herramientas para grunt
+chrisawren.com/posts/Advanced-Grunt-tooling

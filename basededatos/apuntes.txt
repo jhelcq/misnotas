@@ -14,3 +14,6 @@ ALTER TABLE nombre_tabla CONVERT TO CHARACTER SET uft8 COLLATE utf8_general_ci;
 
 //mostrar propiedades a detalle de tabla
 SHOW FULL columns from nombre_tabla;
+
+//para adicionar un campo a una tabla
+alter table nombre_tabla add column nombre_campo tipo_campo
