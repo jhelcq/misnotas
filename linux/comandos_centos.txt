@@ -7,3 +7,5 @@ Ver paquetes instalados en CentOS:
 Carpeta de repositorios:
 	/etc/yum.repos.d
 
+Instala un paquete
+	yum -y nombre_paquete
