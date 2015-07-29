@@ -1,10 +1,6 @@
 http://www.linuxtotal.com.mx/?cont=info_admon_012
 
-http://casperjs.org   ; framework para scraping
-
 https://scotch.io ; buenos tutoriales
-
-watir  ; igual que casperjs
 
 //pagina de diferentes graficos y estadisticas
 visionscarto.net
@@ -14,3 +10,6 @@ http://blog.miguelgrinberg.com/
 
 //blog de un programador con blog, sus proyectos,etc.
 www.alvaroremesal.net
+
+//algunas herramientas para grunt
+chrisawren.com/posts/Advanced-Grunt-tooling
