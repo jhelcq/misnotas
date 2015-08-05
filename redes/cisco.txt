@@ -1,0 +1,146 @@
+Capitulo 2.
+boot system ruta_imagen_ios ; establece el valor de la variable de entorno BOOT
+show bootvar ; muestra la configuracion el archivo de arranque del IOS
+show boot
+
+S1(config)#ip default-gateway direccion_ip; configuracion de agteway predterminado en un switch
+
+Configuracion basica de un router
+R1(config)#line vty 0 4; rango de configuracion de linea en router
+R1(config-if)#description descripcion_interfaz; descripcion de una interfaz
+
+R1(config)#ipv6 unicast-routing; el router empieza a enviar mensajes ICMP de anuncio de router por la interfaz y los host congiguran automaticamente sus parametros de direccionamiento IP
+R1(config-if)#ipv6 address dirección-ipv6/longitud-prefijo [link-local | eui-64].
+R1(config-if)#ipv6 enable; configura una direccion link-local de forma automatica
+R1(config-if)#ipv6 address dirección-ipv6/longitud-prefijo eui-64; configura una direccion de unicast global con el proceso EUI-64
+R1(config-if)#ipv6 address dirección-ipv6/longitud-prefijo ; configura una direccion de unicast global
+R1(config-if)#ipv6 address dirección-ipv6/longitud-prefijo link-local ; configura una direccion de link-local
+
+R1#show interface tipo_interfaz numero_interfaz;muestra la conf. De una interfaz
+R1#show ip interface tipo_interfaz numero_interfaz; muestra conf. De ip de una interfaz
+R1#show running-config interface id-interfaz ;muestra la conf. Actual de una interfaz del router.
+
+R1#show ipv6 interface tipo_interfaz numero_interfaz; muestra la info. De direccionamiento ipv6 en la interfaz ademas direcciones multicast
+show interfaces 
+show ipv6 routers 
+R1# show …. | [include|exclude|section|begin] espresion_filtrado ; filtrado con parametros de filtrado y expresion de filtrado
+R1#terminal history size numero ; tamaño del historial de comando almacenados en el bufer
+R1#show history ; muestra el bufer del historial de comandos
+R1#terminal length ; cantidad de lineas que se muestran en cualquier resultado de varias pantallas
+
+Capitulo 5. Enrutamiento entre VLAN's
+(config-subinf)#encapsulation dot1q nro_vlan ; se habilita la etiquetacion de tramas en la subinterfaz 
+R1#show vlans ; muestra las interfaces virtuales configuradas para el enrutamiento entre vlan's
+R1#show interface ; muestra la configuracion de las sub interfcaces de un router, por ejemplo:
+Encapsulation 802.1q Virtual Interfac....
+Enrutamiento
+#show ip[v6] route ; muestra la tabla de enrutamiento
+#show ip[v6] route Capa de red ; muestra la ruta que se emparejo con la direccion de red(capa de red)
+#show running-config | section ip[v6] route ; muestra la informacion de enrutamiento en la conf en ejecucion
+#debug ip rip ; muestra las rutas recibidas y enviadas en el protocolo rip
+#undebug all ; detiene debug ip rip 
+#clear ip route * ; borra la tabla de enrutamiento 
+Estatico
+IPv4
+Router(config)# ip route dirección-red máscara-subred { dirección-ip | tipo-interfaz número-interfaz [ dirección-ip ]} [ distancia ]
+show ip route static ; muestra la tabla de enrutamiento para las rutas estaticas
+IPv6
+Router(config)# ipv6 route prefijo-ipv6/longitud-prefijo { dirección-ipv6 | interfaz-salida }
+ipv6 unicast-routing ; habilita el routing de unidifusion IPv6 en un router(ie: el router podra reeenviar paqutes IPv6)
+
+RIPv1
+(config)#router rip ;  habilita RIP
+(config)#no router rip ;  detiene el proceso RIP y elimina todas las configuraciones RIP existentes.
+(config-router)#Network direccion_red_de_clase ; habilita las interfaces pertenecientes a la red con clase para enviar y recibir actualizacion de routing y publica la red a los demas routers
+#show ip protocols ; muestra los parametros del protocolo de routing IPv4 conf en el router
+(config-router)#version 1 ;solo habilita la version para enviar y recibir
+(config-router)#version 2 ;solo habilita la version 2 para enviar y recibir
+(config-router)#no version ;configuracion por defecto se envia version 1, se recibe version 1 y 2
+----
+(config-router)#[no] passive-interface [default|tipointerface numerointerface];configuracion por defecto se e
+(config-router)#default-information originate. ; propaga la ruta estatica predeterminada en actualizaciones RIP
+RIPng
+(config-if)#ipv6 rip nombre-dominio enable. ; habilita el enruamiento RIPng en la interfaz con el nombre del dominio de enrutamiento RIP
+(config-if)#ipv6 rip nombre-dominio default-information originate. ; el router sera el origen de la informacion de la ruta predeterminada y esa ruta se propagara por todas las interfaces(ojo!)
+#show ipv6 protocols ; muestra informacion del proceso RIPng
+#show ipv6 rip nombre-dominio ; muestra informacion mas informacion que show ipv6 protocols
+ACL
+192.168.10.10 0.0.0.0(solo el host especifico) = host 192.168.10.10. 
+0.0.0.0 255.255.255.255(todos los host) = any
+#show access-lists [nombre|numerp]; muestra el contenido de todas las ACL's o de una ACL en expecifico
+#show ip interface tipo_interfaz numero_interfaz ; se podra ver la configuracion de la ACL en tal interfaz
+(config-if)#ip access-group { access-list-number | nombre-lista-acceso } { in | out } ; vincula una ACL a una interfaz como filtro de entrada o salida
+#clear access-lists counters numero|nombre ; borra las estadisticas de los paquetes emparejados con las ACE's
+ACL standard
+(config)#ip access-list standard numero o nombre ; ingresa al modo de configuracion de una ACL standar numerada o nombrada, por ejemplo para editarla
+ACL standard numerada
+access-list access-list-number { deny | permit | remark } Origen [ source-wildcard ][ log ] ; 
+(config)#no access-list access-list-number ; elimina una lista estandar numerada
+ACL standard nombrada
+(config)#ip access-list [standard|extended] nombre ; crea una ACL estandar o extendida nombrada
+ACL numerada extendida
+access-list 101 permit tcp any any eq ? ; visualizar lista de numeros de puerto y palabras clave de los puertos
+access-list access-list-number {permit|ney|remark} protocol source [source-wildcard] [operator operand] [port port-number or name] destination [destination-wildcard] [operator operand] [port port-number or name] [established] ; 
+ACL nombrada extendida
+(config)#[no] ip access-list extended nombre ; crea una ACL nombrada o la elimina
+(config-ext-nacl)#permit|deny|remark ... ; crea una ACE en el modo de configuracion de una ACL nombrada
+(conf)#show access-lists nombre ; muestra la informacion de una ACL 
+(config-ext-nacl)#no num_sec ; elimina una ACL con numero de secuencia num_sec de una ACL nombrada
+(config-ext-nacl)#num_sec permit|deny|remark ...; adiciona una ACE en reemplazo de otra ACE con numero de secuencia num_sec
+
+access-class número-lista-acceso { in | out } ; proteccion de lineas vty 
+Capitulo 10. DHCP
+R1(conf)[no] service dhcp ; se activa o desactiva el servidor dhcp y el agente de retransmision dhcp
+R1(conf)#ip dhcp excluded-address low_address [high_address] ; excluye direcciones para DHCP
+R1(conf)#ip dhcp pool nombre-pool ; crea un pool de direccion a asignar, esto hace que se ingrese a la configuracion de dhcp(dhcp-conf)
+R1(dhcp-conf)#default-router direccion_gatway ; direccion de gateway predeterminado
+R1(dhcp-conf)#dns-server direccion_dns ; direccion de dns
+R1(dhcp-conf)#domain-name dominio ; nombre de dominio
+
+R1(conf-if)#ip helper-address ; configura a un router en una interfaz como agente de retransmision
+R1(conf-if)#ip address dhcp ; configura a un router en una interfaz como cliente dhcp
+
+R1#show ip dhcp binding ; muestra los arrendamientos de direcciones IP ya realizadas por el servidor 
+R1#show ip dhcp server statistics ; muestra estadisticas de los diferentes paquetes de dhcp que recibio y envio el server dhcp
+
+Resolucion de problemas
+R1#show [ip|ipv6] dhcp conflict ; muestra informacion de conflicto en arrendamientos de ip
+R1#debug ip dhcp server events ; muestra los eventos del servidor dhcp como: arrendamientos exitosos, arrendamientos caducados, etc.
+
+
+
+Router# show ipv6 interface tipo_interfaz numero_interfaz; en la parte final muestra los indicadores My O que se usan en los mensajes RA en una interfaz del router
+Configura una interfaz para que se utilize SLAAC solamente
+Router(config-if)# no ipv6 nd managed-config-flag 
+Router(config-if)# no ipv6 nd other-config-flag 
+Configura una interfaz para que se utilize DHCPv6 sin estado
+Router(config-if)# ipv6 nd other-config-flag 
+Configura una interfaz para que se utilize DHCPv6 con estado
+Router(config-if)# ipv6 nd managed-config-flag 
+DHCPv6 sin estado
+Servidor router DHCPv6 sin estado
+Router(config)# ipv6 dhcp pool nombre-pool ; se crea un pool para el servidor DHCPv6 sin estado
+Router(config-if)# ipv6 dhcp server nombre-pool ; se vincula un pool a una interfaz
+
+Router# show ipv6 dhcp pool ; muestra la configuracion del servdiro DHCPv6 sin estado
+Cliente router
+R(config-if)# ipv6 address autoconfig ; configura la interfaz de un router para obtener info de direc con SLAAC
+R1#debug ipv6 dhcp detail ; muestra el debug en un cliente DHCPv6 sin estado
+DHCPv6 con estado
+Servidor router DHCPv6 con estado
+R(config-dhcpv6)# address prefix longitud/prefijo [lifetime tiempo_valido tiempo_preferido| infinite]; configura la subred desde la cual se arrendara las direccion IPv6
+R1#show ipv6 dhcp binding ; muestra el emparejamiento entre dir. Link-local y direccion IPv6 en el servvidor DHCPv6 con estado
+Cliente router
+R(config-if)# ipv6 address dhcp ; configura la interfaz de un router para obtener info de direccion de unservidor DHCP con estado
+Agente de retransmision
+R(config-if)# ipv6 dhcp delay destination direcion_ipv6_server_dhcp ; se configura un agente de retransmision en una interfaz de un router
+Capitulo 11. DHCP
+NAT estatico
+R1(conf)#ip nat inside source static ip_local op_global ; bconfiguracion una asignacion estatica entre una dir. Local interna y unadir. Global interna
+R1(conf-if)# ip nat inside ; configura una interfaz conectada al interior
+R1(conf-if)# ip nat outside ; confgiura una interfaz conectada al exterior
+Verificacion
+R1#show ip nat translations ; muestra la tabla NAT  de asignaciones
+R1#show ip nat statistics ; muestra estadisticas de las asignaciones NAT activas
+R1#celar show ip nat statistics ; borra estadisticas de las asignaciones NAT activas
+

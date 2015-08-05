@@ -1,3 +1,11 @@
+Para poder ingresar con el usuario postgres(pgsql -U postgres) se debe colocar la autenticacion del postgres en md5(con peer no funciono) como en la siguiente linea
+
+	local all postgres md5
+
+Para habilitar postgres en php en lampp ir al archivo /opt/lampp/etc/php.ini y descomentar la linea:
+	extension="pgsql.so"
+Y luego reiniciar lampp(sudo /opt/lampp/lampp restart)
+	
 psql -U username -W -h host_servidor	; se conecta a la consola del usuario 'username' y pide contraseña(-W)
 
 \i ruta_archivo	;	Ejecuta un script desde la consola de postgres
