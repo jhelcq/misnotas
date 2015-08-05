@@ -151,7 +151,9 @@ dpkg --add-architecture; adiciona una arq. para instalar paquetes de la misma
 ldd ejecutable; muestra las dependencias del programa ejecutable
 
 lsmod	; muestra los modulos del kernel actualmente cargados
+
 modprobe modulo	; carga un modulo
+
 modprobe -r modulo	;	quita un modulo
 
 fdisk -l ; muestra los dispositivos en /dev
@@ -172,6 +174,14 @@ kill
 
 renice
 	nueva_prioridad PID_proceso	; coloca nueva prioridad a proceso en tiempo real
+
+dpkg --print-architecrure ; muestra la arquitectura para la que se compilo dpkg e instala por defecto paquetes de esa arqui.
+
+dpkg --print-foreign-architectures ; muestra las arquitecrutaras adicionales que instala dpkg
+
+whereis nombre_programa ; muestra en realidad donde esta el ejecutable del programa
+
+file nombre_programa ; muestra el tipo de archivo de un programa
 
 mkfs.vfat -F 32 -n etiqueta_usb /dev/sdbN ; formatea una unidad con fat32 y una etiqueta
 

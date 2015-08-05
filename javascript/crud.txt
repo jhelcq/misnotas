@@ -1,0 +1,60 @@
+---------PARA POST------------
+Estructura de los datos enviados
+        var jso=  '{"user_fullname":"chayito","user_email":"chayito@hotmail.com","user_password":"chayito","user_status":3}';
+        $.ajax({
+            contentType: "application/json",
+            data: jso,
+            dataType: "text",
+            emulateHTTP: false,
+            emulateJSON: false,
+            error: function (xhr) {
+                console.log('hubo un error');
+            },
+            parse: true,
+            processData: false,
+            success: function (r) {
+                console.log(r);
+            },
+            type: "POST",
+            url: "modelo/",
+            validate: true
+        });
+RESULTADO
+En GET, POST, REQUEST no existen datos
+En php:://input si existen la parámetros enviados y contiene la cadena que se envio(que en el caso es una cadena en formato json, la cual se la debe decodificar a obtener un array assoc de la cadena codifoicada en json
+
+---------PARA PUT------------
+   /*contentType: "application/json"
+        data: "{"user_id":11,"user_fullname":"eliseo1","user_email":"eliseo1@hotmail.com","user_password":"eliseo1","user_status":0}"
+        dataType: "json"
+        emulateHTTP: false
+        emulateJSON: false
+        error: function (xhr) {
+        parse: true
+        processData: false
+        success: function (resp) {
+        type: "PUT"
+        url: "modelo/11"
+        validate: true*/
+
+RESULTADO
+Es el mismo que POST
+
+---------PARA GET------------
+Object {type: "GET", dataType: "json", url: "modelo/7"}
+RESULTADO
+En GET, POST, REQUEST no existen datos
+No se tiene ningun dato enviado explicitamente lo que se debe hacer es gestionar obtener elc odigo que esta al final de la url y con ello devolver una array con los datos del objeto desde el servidor
+
+---------PARA DELETE------------
+Object {type: "DELETE", dataType: "json", url: "modelo/7", processData: false}
+RESULTADO
+En GET, POST, REQUEST no existen datos
+No se tiene ningun dato enviado explicitamente lo que se debe hacer es gestionar obtener elc odigo que esta al final de la url y con ello hacer la operación de eliminacion
+
+Para Collection
+Para fetch
+Object {type: "GET", dataType: "json", url: "../conjuntocurso_materias/modelo/restful"}
+
+
+$urlUltimo = strtolower(trim(str_replace("/","",$_REQUEST['rquest']))); 
