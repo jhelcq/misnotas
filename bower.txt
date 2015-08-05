@@ -1,0 +1,3 @@
+bower search nombre_paquete
+bower info nombre_paquete
+bower update ; actualiza las dependencias configuradas en bower.json
