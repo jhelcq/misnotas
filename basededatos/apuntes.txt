@@ -17,3 +17,6 @@ SHOW FULL columns from nombre_tabla;
 
 //para adicionar un campo a una tabla
 alter table nombre_tabla add column nombre_campo tipo_campo
+
+//eliminar una columna de una tabla
+ALTER TABLE nombre_tabla DROP columna_tabla
