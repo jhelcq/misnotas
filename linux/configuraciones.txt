@@ -31,3 +31,5 @@ Sacar un iso del dvd de instalacion y copiarlo directamente al usb(no a una part
 ---------- AWESOME  ----------
 Archivo de themes
 	/usr/share/awesome/themes
+Para iniciar awesome desde el login de gnome:
+Ingresar al archivo /usr/share/xsessions/awesome.desktop y cambiar NoDisplay=true a false	

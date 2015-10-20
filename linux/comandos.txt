@@ -188,3 +188,5 @@ mkfs.vfat -F 32 -n etiqueta_usb /dev/sdbN ; formatea una unidad con fat32 y una 
 mkfs.ext4 /dev/sdbN : formatea una unidad en formato ext4(linux)
 
 fdisk /dev/sdL ; utilidades para particionar un disco sdL, donde L es una letra
+
+date --set "2014-01-28 15:00" ; cambia la hora del sistema
