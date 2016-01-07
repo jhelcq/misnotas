@@ -52,3 +52,11 @@ Mostrando el log de commits con info resumida
 
 Para recuperar un archivo de un commit concreto
 	git show HASH_GIT:ruta_a_archivo_a_recuperar> ruta_a_archivo_recuperado
+
+git checkout 8f969536¿ path/to/file ; retorna un archivo a una version anterior en un commit(lo coloca como commiteado)
+
+git reset --hard HEAD-cant_commits ; elimina una cierta cant. de commits atras borrando todos los archivos de esos commits
+
+git reset  HEAD-cant_commits ; elimina una cierta cant. de commits atras manteniendo todos los archivos de esos commits
+
+git checkout . ; retorna todos los archivos cambiados en el area de trabajo al estado del anterior commit
