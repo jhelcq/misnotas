@@ -9,3 +9,13 @@ Carpeta de repositorios:
 
 Instala un paquete
 	yum -y nombre_paquete
+	yum install nombre_paquete
+--- Configuracion de red ---
+	ip add show ; muestra la configuracion de interfaces de red
+Directorio de archivos de configuracion de interfaces
+	/etc/sysconfig/network-scripts
+Desactiva NetworkManager:
+	systemctl stop NetworkManager
+	systemctl disable NetworkManager
+Reiniciar el servicio de red
+	systemctl restart network.service
