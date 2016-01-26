@@ -1,0 +1,3 @@
+Para usar Map en GEE python se necesita instalar los paquetes de debian:
+	- instalar python-imaging 
+	- instalar python-pil.imagetk
