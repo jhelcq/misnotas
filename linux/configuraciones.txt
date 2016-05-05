@@ -33,3 +33,13 @@ Archivo de themes
 	/usr/share/awesome/themes
 Para iniciar awesome desde el login de gnome:
 Ingresar al archivo /usr/share/xsessions/awesome.desktop y cambiar NoDisplay=true a false	
+
+---------- WIFI CONSOLE  ----------
+Buscar redes wifi
+	iw wlan0 scan
+Agregar contrasena para red wifi en especifico
+	wpa_passphrase nombre_wifi >> /etc/wpa_supplicant.conf
+Conectar a una red ya configurada la contrasenia:
+	wpa_supplicant -B -D wext -i wlan0 -c /etc/wpa_supplicant.conf
+Verificando si se conecto correctamente a una red wifi:
+	iw wlan0 link
