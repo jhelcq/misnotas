@@ -1,0 +1,8 @@
+Ejecutar script desde interactive mode:
+	execfile('script.py') 
+Ref:
+	http://stackoverflow.com/questions/4624416/is-there-a-posibility-to-execute-a-python-script-while-being-in-interactive-mode
+
+Disponibilidad de paquetes de otras carpetas en modulo actual
+	import sys
+	sys.path.insert(0, '/opt/lampp/htdocs/jhelcq/cobuso_web')

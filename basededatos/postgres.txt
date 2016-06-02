@@ -16,3 +16,9 @@ Comandos en la consola de postgres
 	\c base_datos	; conectar a base de datos
 	\d tabla	; equivalente a show columns
 	\d 	; equi a show tables;
+
+Exportar backup de db
+	pg_dump -i -h 127.0.0.1 -p 5433 -U postgres -F c -b -v -f "/home/jhelcq/cobuso.backup" cobuso;
+
+Importar backup de db
+	pg_restore -U postgres -d cobuso_1 -1 '/home/jhelcq/cobuso.backup'
