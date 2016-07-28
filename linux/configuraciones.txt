@@ -35,6 +35,12 @@ Para iniciar awesome desde el login de gnome:
 Ingresar al archivo /usr/share/xsessions/awesome.desktop y cambiar NoDisplay=true a false	
 
 ---------- WIFI CONSOLE  ----------
+Ver dispositivos wifi:
+	iw dev
+Ver el estado de la tajeta wifi:
+	ip link show wlan0
+Levntar la tarjeta wifi:
+	ip link set wlan0 up
 Buscar redes wifi
 	iw wlan0 scan
 Agregar contrasena para red wifi en especifico

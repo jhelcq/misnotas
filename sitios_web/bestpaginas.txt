@@ -16,3 +16,10 @@ chrisawren.com/posts/Advanced-Grunt-tooling
 
 //para generar DER para postgresql
 https://kmonsoor.wordpress.com/2014/12/18/generate-er-diagram-from-sql-database/
+
+//para generar iconos
+http://preloaders.net/ 
+
+//tutorial de rest
+http://rest.elkstein.org/
+http://www.tutorialspoint.com/restful/restful_methods.htm

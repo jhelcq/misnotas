@@ -6,3 +6,8 @@ Ref:
 Disponibilidad de paquetes de otras carpetas en modulo actual
 	import sys
 	sys.path.insert(0, '/opt/lampp/htdocs/jhelcq/cobuso_web')
+
+Obtener un objeto datetime en base a un string y adicionar dias a la fecha en cuestion
+s = '2013-08-11 09:48:49'
+mytime = datetime.strptime(s, "%Y-%m-%d %H:%M:%S")
+mytime += timedelta(hours=6)
