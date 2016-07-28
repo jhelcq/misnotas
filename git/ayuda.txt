@@ -50,7 +50,7 @@ git remot­e add origi­n git@g­ithub.com:­jhocolque/­try_git.gi­t
 Mostrando el log de commits con info resumida
 	git log --pretty=oneline
 
-Para recuperar un archivo de un commit concreto
+Para recuperar un archivo de un commit concreto:
 	git show HASH_GIT:ruta_a_archivo_a_recuperar> ruta_a_archivo_recuperado
 
 git checkout 8f969536¿ path/to/file ; retorna un archivo a una version anterior en un commit(lo coloca como commiteado)
@@ -60,3 +60,9 @@ git reset --hard HEAD-cant_commits ; elimina una cierta cant. de commits atras b
 git reset  HEAD-cant_commits ; elimina una cierta cant. de commits atras manteniendo todos los archivos de esos commits
 
 git checkout . ; retorna todos los archivos cambiados en el area de trabajo al estado del anterior commit
+
+ git branch -rd origin/rama ; elimina una rama en el repositorio remoto
+
+ git branch -d origin/rama ; elimina una rama local forzando su eliminacion si no se integro con otra rama
+
+git cherry-pick codigo_commit ; se mueve un commit a la rama actual
