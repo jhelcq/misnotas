@@ -1,0 +1,5 @@
+prioridad predeterminada: 32768
+
+(conf)#spanning tree mode pvst|rpvst ; cambia el protocolo de stp
+(conf)#spanning-tree vlan nro_vlan root primary ; coloca como puente raiz a un switch de forma permanente
+(conf)#spanning-tree vlan nro_vlan root secondary ; conf. un switch como puente secundario
