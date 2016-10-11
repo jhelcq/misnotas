@@ -63,6 +63,24 @@ git checkout . ; retorna todos los archivos cambiados en el area de trabajo al e
 
  git branch -rd origin/rama ; elimina una rama en el repositorio remoto
 
- git branch -d origin/rama ; elimina una rama local forzando su eliminacion si no se integro con otra rama
+ git branch -d rama_local ; elimina una rama local forzando su eliminacion si no se integro con otra rama
 
-git cherry-pick codigo_commit ; se mueve un commit a la rama actual
+git cherry-pick codigo_commit ; se copia un commit a la rama actual
+
+git remote -v ; muestra los repositorios remotos y su url
+
+git remote rm nombre_repositorio ; se elimina un repositorio
+
+git branch -m nombre-rama nombre-rama-nueva ; renombra una rama local
+
+git checkout hash_commit ; salta a un determinado commit entrando en estado 'detached HEAD'
+
+Que pasa si se elimina un rama que apunta a commits que no pertenecen a otra rama?
+
+git config --global core.excludesfile ~/.gitignore_global ; configura un archivo ignore global para todos los repositorios del usuario
+
+git rm --cached archivo ; desigue un archivo pero lo mantiene en la carpeta local
+
+
+
+

@@ -22,3 +22,10 @@ Exportar backup de db
 
 Importar backup de db
 	pg_restore -U postgres -d cobuso_1 -1 '/home/jhelcq/cobuso.backup'
+
+To lists all schemas, use the (ANSI) standard INFORMATION_SCHEMA
+	select schema_name from information_schema.schemata
+
+Elimina todas las tablas de un schema:
+	DROP SCHEMA public CASCADE;
+	CREATE SCHEMA public;

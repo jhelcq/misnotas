@@ -190,3 +190,17 @@ mkfs.ext4 /dev/sdbN : formatea una unidad en formato ext4(linux)
 fdisk /dev/sdL ; utilidades para particionar un disco sdL, donde L es una letra
 
 date --set "2014-01-28 15:00" ; cambia la hora del sistema
+
+scp -P num_puerto -r /home/mario/carpeta usuario@dominio.com:/home/usuario
+
+ssh cobuso@200.75.168.73 -p224
+
+tail -f archivo ; lee y monitorea un archivo
+
+less archivo ; lee un archivo y se puede navegar con comandos de vim
+
+cat -n arhivo ; muestra el archivo con numero de lineas
+
+wc -l archivo ; cuenta la cantidad de lineas de un archivo
+
+
