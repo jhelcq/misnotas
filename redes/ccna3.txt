@@ -3,3 +3,25 @@ prioridad predeterminada: 32768
 (conf)#spanning tree mode pvst|rpvst ; cambia el protocolo de stp
 (conf)#spanning-tree vlan nro_vlan root primary ; coloca como puente raiz a un switch de forma permanente
 (conf)#spanning-tree vlan nro_vlan root secondary ; conf. un switch como puente secundario
+(conf-if)#spanning-tree cost nro_costo ; cambia el costo de un puerto
+
+	Comandos show
+(conf)#show spanning-tree vlan nro_vlan ; se muestra la conf de stp para un vlan 
+
+#debug spanning-tree events ; habilita el debug de stp
+
+	Capitulo 5
+//estableciendo prioridad de una interfaz para el proceso de eleccion de DR y BRD
+(conf-if)#ip ospf priority valor
+(conf-if)#ipv6 ospf priority valor
+
+#ip ospf priority valor ; restablece el proceso ospf
+
+--- propagacion de ruta predeterminada ipv4, ipv6---
+conf-router)#default-information originate ; establece que el router enviara la ruta predeterminada en las actualizaciones OSPF
+
+
+--- opciones de interfaz ---
+#show ip ospf interface nombre_interfaz ; muestra configuracion de ospf de la interfaz
+(conf-if)#ip|ipv6 ospf hello-interval valor ; se establece el intervalor de saludo con el vecino
+(conf-if)#ip|ipv6 ospf dead-interval valor ; se establece el intevalo muerto con el vecino
