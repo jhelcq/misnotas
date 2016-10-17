@@ -25,3 +25,11 @@ conf-router)#default-information originate ; establece que el router enviara la 
 #show ip ospf interface nombre_interfaz ; muestra configuracion de ospf de la interfaz
 (conf-if)#ip|ipv6 ospf hello-interval valor ; se establece el intervalor de saludo con el vecino
 (conf-if)#ip|ipv6 ospf dead-interval valor ; se establece el intevalo muerto con el vecino
+
+--- autenticacion MD5 OSPF global---
+conf-router)#area area-id authentication message-digest ; habilita la autenticacion MD5 de forma global en el area 0
+(conf-if)#ip ospf message-digest-key key md5 password ; habilita md5 en una interfaz
+
+--- autenticacion MD5 OSPF por interfaz---
+(conf-if)#ip ospf message-digest-key key md5 password ;establece clave md5 en una interfaz para la autenticacion
+(conf-if)#ip ospf authentication message-digest ; habilita md5 en una interfaz
