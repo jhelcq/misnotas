@@ -1,35 +1,71 @@
-prioridad predeterminada: 32768
+------------------ CAPITULO 2 ------------------
+	01:80:C2:00:00:00 difusion para todos los switch con STP habilitado
+	32768 prioridad de puente predeterminado
+	Prioridad de puente de 0 a 61440
+	prioridad predeterminada: 32768
+	
+(conf)#spanning-tree vlan id-vlan root primary
+(conf)#spanning-tree vlan id-vlan root secondary
+(conf)#spanning-tree vlan id-vlan priority valor
+(conf-if)#spanning-tree portfast 
+(conf)#spanning-tree portfast default
+(conf-if)#spanning-tree bpduguard enable
+(conf)#spanning-tree portfast bpduguard default
 
 (conf)#spanning tree mode pvst|rpvst ; cambia el protocolo de stp
 (conf)#spanning-tree vlan nro_vlan root primary ; coloca como puente raiz a un switch de forma permanente
 (conf)#spanning-tree vlan nro_vlan root secondary ; conf. un switch como puente secundario
-(conf-if)#spanning-tree cost nro_costo ; cambia el costo de un puerto
+(conf-if)#spanning-tree cost valor ; configurar el costo de puerto de una interfaz
+
+--- configuracion de HSRP ---
+(conf-if)#standby NRO_GRUPO ip IP_VIRTUAL ; se configura la ip virtual del grupo HSRP
+(conf-if)#standby NRO_GRUPO priority PRIORIDAD ; se configura la prioridad del router para el grupo HSRP
+(conf-if)#standby NRO_GRUPO preempt
+#show standby ; muestra configuracion de HSRP
+
+--- configuracion de GLBP ---
+(conf-if)#glbp NRO_GRUPO ip IP_VIRTUAL ; se configura la ip virtual del grupo HSRP
+(conf-if)#glbp NRO_GRUPO priority PRIORIDAD ; se configura la prioridad del router para el grupo HSRP
+(conf-if)#glbp NRO_GRUPO preempt
+(conf-if)#glbp NRO_GRUPO load-balancing round-robin ; configura el grupo con balanceo de carga de tipo de turnos rotativos
+#show glbp ; muestra configuracion de HSRP
 
 	Comandos show
 (conf)#show spanning-tree vlan nro_vlan ; se muestra la conf de stp para un vlan 
 
 #debug spanning-tree events ; habilita el debug de stp
 
-	Capitulo 5
+------------------ CAPITULO 5 ------------------
+#show ip ospf interfa brief ; muestra un resumen de configuracion de ospf en las interfaces
+#show ip ospf neighbor ; muestra los vecino ospf
+
 //estableciendo prioridad de una interfaz para el proceso de eleccion de DR y BRD
 (conf-if)#ip ospf priority valor
 (conf-if)#ipv6 ospf priority valor
 
-#ip ospf priority valor ; restablece el proceso ospf
+#clear ip ospf process ; restablece el proceso ospf
+#clear ip ospf Nro_proceso process ; restablece el proceso de numero Nro_proceso ospf
+
+#debug ip ospf adj ; debug de vecinos ospf
 
 --- propagacion de ruta predeterminada ipv4, ipv6---
-conf-router)#default-information originate ; establece que el router enviara la ruta predeterminada en las actualizaciones OSPF
+conf-router)#default-information originate ; establece que el router enviara la ruta predeterminada en las actualizaciones OSPF v2 o v3
 
-
---- opciones de interfaz ---
+--- configuracion de intervalo de saludo y muerto ---
 #show ip ospf interface nombre_interfaz ; muestra configuracion de ospf de la interfaz
 (conf-if)#ip|ipv6 ospf hello-interval valor ; se establece el intervalor de saludo con el vecino
 (conf-if)#ip|ipv6 ospf dead-interval valor ; se establece el intevalo muerto con el vecino
+(conf-if)#no ip|ipv6 ospf hello-interval ; se reestablece el intervalor de saludo al valor predeterminado
+(conf-if)#no ip|ipv6 ospf dead-interval ; se reestablece el intervalor muerto al valor predeterminado
+
+------ autenticacion MD5 ------
 
 --- autenticacion MD5 OSPF global---
 conf-router)#area area-id authentication message-digest ; habilita la autenticacion MD5 de forma global en el area 0
 (conf-if)#ip ospf message-digest-key key md5 password ; habilita md5 en una interfaz
 
 --- autenticacion MD5 OSPF por interfaz---
-(conf-if)#ip ospf message-digest-key key md5 password ;establece clave md5 en una interfaz para la autenticacion
 (conf-if)#ip ospf authentication message-digest ; habilita md5 en una interfaz
+(conf-if)#ip ospf message-digest-key key md5 password ;establece clave md5 en una interfaz para la autenticacion
+
+(conf-if)#ipv6 ospf authentication ipsec spi ; configuracion de comunicacion segura de ospf en ospfv3
