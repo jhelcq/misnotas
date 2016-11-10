@@ -35,6 +35,11 @@
 
 #debug spanning-tree events ; habilita el debug de stp
 
+------------------ CAPITULO 3 ------------------
+#show etherchannel summary ; muestra configuracion resumida de etherchannel por portchannel
+#show interfaces etherchannel ; muestra mucha info de etherchannel en una interfaz fisica
+#show etherchannel port-channel ; muestra informacion completa de etherchannel en los portchannels
+
 ------------------ CAPITULO 5 ------------------
 #show ip ospf interfa brief ; muestra un resumen de configuracion de ospf en las interfaces
 #show ip ospf neighbor ; muestra los vecino ospf
@@ -69,3 +74,9 @@ conf-router)#area area-id authentication message-digest ; habilita la autenticac
 (conf-if)#ip ospf message-digest-key key md5 password ;establece clave md5 en una interfaz para la autenticacion
 
 (conf-if)#ipv6 ospf authentication ipsec spi ; configuracion de comunicacion segura de ospf en ospfv3
+
+------------------ CAPITULO 6 ------------------
+(conf-router)# summary-address address mask;sumarizacion en un router ASBR
+
+(conf-router)# area id-área range dirección máscara ; resumen de rutas internas en un ABR
+(conf-router)# area id-área range prefijo/longitud-prefijo
