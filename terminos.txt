@@ -1,0 +1,8 @@
+bundler
+curly braces
+quotes
+string literrlas
+caveat(nota?
+safe
+plain objects
+tick
