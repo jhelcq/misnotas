@@ -23,3 +23,9 @@ http://preloaders.net/
 //tutorial de rest
 http://rest.elkstein.org/
 http://www.tutorialspoint.com/restful/restful_methods.htm
+
+#paquetes de terceros de django con muchas utilidades
+https://gitlab.com/rosarior/awesome-django
+
+#paquetes de python
+http://awesome-python.com/
