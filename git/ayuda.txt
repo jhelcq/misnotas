@@ -61,9 +61,11 @@ git reset  HEAD-cant_commits ; elimina una cierta cant. de commits atras manteni
 
 git checkout . ; retorna todos los archivos cambiados en el area de trabajo al estado del anterior commit
 
- git branch -rd origin/rama ; elimina una rama en el repositorio remoto
+//--- eliminando una rama remota ---
+git branch -rd origin/rama ; elimina una rama remota en nuestra copia local
+git push origin :rama_remota ; se elimina 'rama_remota' en la copia remota
 
- git branch -d rama_local ; elimina una rama local forzando su eliminacion si no se integro con otra rama
+git branch -d rama_local ; elimina una rama local forzando su eliminacion si no se integro con otra rama
 
 git cherry-pick codigo_commit ; se copia un commit a la rama actual
 
@@ -81,6 +83,9 @@ git config --global core.excludesfile ~/.gitignore_global ; configura un archivo
 
 git rm --cached archivo ; desigue un archivo pero lo mantiene en la carpeta local
 
+Borrar commits del repositoreo remoto:
+	git reset HEAD^ # remove commit locally
+	git push origin +HEAD # force-push the new HEAD commit
 
-
-
+	- Primero borrar los commits localmente luego subir los cambios al remoto con:
+		git push origin +rama  o  git push origin rama --force ; sube los cambios forzando los mismos
