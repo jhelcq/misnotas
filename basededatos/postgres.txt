@@ -29,3 +29,11 @@ To lists all schemas, use the (ANSI) standard INFORMATION_SCHEMA
 Elimina todas las tablas de un schema:
 	DROP SCHEMA public CASCADE;
 	CREATE SCHEMA public;
+
+ALTER DATABASE cobuso RENAME TO herramientas_monitoreo ; renombra una base de datos
+
+Cambiar puerto de coneccion:
+	- Abrir el archivo /etc/postgresql/X.X/main/postgresql.conf y buscar el parametro 'port'
+
+Resetear el password de postgre:
+	- Abrir el archivo .... y cambiar el parametro en la linea 'local' a trust
