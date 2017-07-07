@@ -191,7 +191,7 @@ fdisk /dev/sdL ; utilidades para particionar un disco sdL, donde L es una letra
 
 date --set "2014-01-28 15:00" ; cambia la hora del sistema
 
-scp -P num_puerto -r /home/mario/carpeta usuario@dominio.com:/home/usuario
+scp -P num_puerto_ssh -r /home/mario/carpeta usuario@dominio.com:/home/usuario
 
 ssh cobuso@200.75.168.73 -p224
 
@@ -203,4 +203,10 @@ cat -n arhivo ; muestra el archivo con numero de lineas
 
 wc -l archivo ; cuenta la cantidad de lineas de un archivo
 
+--- Crea un disco de arranque con el instalador iso en /dev/sdX
+cp debian.iso /dev/sdX
+sync
 
+du -sh file_path ; muestra el tamano de un directorio
+	-s, --summarize ; display only a total for each argument
+  	-h, --human-readable ;  print sizes in human readable format (e.g., 1K 234M 2G)
