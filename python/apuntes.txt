@@ -11,3 +11,10 @@ Obtener un objeto datetime en base a un string y adicionar dias a la fecha en cu
 s = '2013-08-11 09:48:49'
 mytime = datetime.strptime(s, "%Y-%m-%d %H:%M:%S")
 mytime += timedelta(hours=6)
+
+obj.__class__.__name__ ;obtiene la clase de la cual obj es instancia
+
+Para saber el tipo de excepcion que se agarro:
+	except Exception as e:
+		e.__class__.__name__
+		type(e).__name__
