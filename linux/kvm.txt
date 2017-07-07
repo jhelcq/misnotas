@@ -48,15 +48,6 @@ KVM_DISCO=5
 KVM_PATH=/home/jan/jan-kvms/demo.img
 sudo virt-install --connect=qemu:///system --name=${KVM_HOSTNAME} --ram=${KVM_RAM} --vcpus=${KVM_CPU} --check-cpu --disk path=${KVM_PATH},size=${KVM_DISCO},sparse=true --cdrom=${ISO_PATH} --vnc --noautoconsole --os-type=linux --os-variant=debianwheezy --accelerate --network bridge=br0 --hvm --autostart
 
+sudo virt-install --connect=qemu:///system --name=centos-7 --ram=4096 --vcpus=4 --check-cpu --disk path=/home/jhelcq/so_virtual/centos-7.img,size=40,sparse=true --cdrom=/home/jhelcq/so_virtual/centos.iso --vnc --noautoconsole --os-type=linux --os-variant=rhel7  --accelerate --network bridge=br0 --hvm --autostart
 
-sudo virt-install --connect=qemu:///system --name=debian-7.1.0 --ram=2048 --vcpus=1 --check-cpu --disk path=/media/f/so_virtuales/debian-7.1.0.img,size=35,sparse=true --cdrom=/media/c/debian-7.1.0-amd64/dvd1/Debian-7.1.0-amd.mdf --vnc --noautoconsole --os-type=linux --os-variant=debianwheezy --accelerate --network bridge=br0 --hvm --autostart
-
-
-
-
-
-
-
-
-
-
+virt-install --os-variant list ; ver lista de so disponibles para instalar en kvm
