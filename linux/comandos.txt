@@ -83,7 +83,7 @@ chmod 755 nombre_intalador.run
 rm -rf /opt/lamp
 
 //despues colocar permisos de 755 a la carpeta /opt/lampp/htdocs/ de forma recursiva
-//por el momento con 755 es suficiente tbn se puede hacer con 777 pero creo por cuestiones de seguridad no es adecuado iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+//por el momento con 755 es suficiente tbn se puede hacer con 777 pero creo por cuestiones de seguridad no es adecuado 
 chmod -R 755 /opt/lampp/htdocs/
 
 PARA COMANDOS
@@ -126,8 +126,6 @@ deb file:/media/nombre_carpeta wheezy main contrib; esto agrega al repositorio u
 
 mkntfs -f -L nombre_unidad /dev/sdX ; debe estar instalado el paquete ntfsprogs. Formatea un disco(refereciado por /dev/sdX) con formato NTFS de manera rapida(-f) y con label(-L) nombre_unidad.
 
-df ; Lista todad las unidades montadas y cual su ubicacion.
-
 //acento grave: ` una tecla a la derecha de 'P' seguido de space o dos veces la tecla a la derecha de 'P'(aunque esta segunda opcion en vim no da) 
 //apostrofe: ' una tecla a la derecha de '=' o una tecla a la derecha de 'Ñ'+ spacio
 
@@ -156,7 +154,9 @@ modprobe modulo	; carga un modulo
 
 modprobe -r modulo	;	quita un modulo
 
-fdisk -l ; muestra los dispositivos en /dev
+fdisk -l ; muestra los dispositivos en /dev a pesar de que no han sido montados
+
+df ; Lista todos los dispositivos montados y cual su ubicacion.
 
 apt-get autoremove	; elimina paquetes herfanos
 
