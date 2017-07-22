@@ -1,0 +1,23 @@
+1. System Locale and Keyboard configuration
+
+Utilidad localectl
+
+System locale
+
+localectl status ; muestra la configuracion de System Locale y Keyboard Layout
+localectl list-locales ; listalas regiones disponibles del sistema
+sudo localectl set-locale LANG=locale ; establece la region por defecto del sistema
+
+Keyboard layout
+
+localectl list-keymaps ; lista los layouts de teclado disponibles en el sistema
+sudo localectl set-keymap map ; establece el layout para el console layout y X11 window
+  opcion: --no-convert; establece el keyboard layout solo para consola
+sudo localectl set-x11-keymap ; establece el layout para X11 window y console layout
+  opcion: --no-convert; establece el keyboard layout solo para X11
+
+
+
+
+
+
