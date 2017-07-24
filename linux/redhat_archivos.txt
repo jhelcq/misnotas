@@ -2,6 +2,10 @@
 
 /etc/locale.conf ; archivo de configuracion de region de localizacion del sistema y configuracion de teclado
 
+2. Configuring the Date and Time
+
+/etc/adjtime ; se almacena si el RTC se mantiene en UTC o local time
+
 3. Managing Users and Groups
 
 /usr/share/doc/setup*/uidgid ; documentacion de detalle de los usuarios y grupos reservados del sistema
