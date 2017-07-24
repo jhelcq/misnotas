@@ -1,0 +1,15 @@
+1. System Locale and Keyboard configuration
+
+/etc/locale.conf ; archivo de configuracion de region de localizacion del sistema y configuracion de teclado
+
+3. Managing Users and Groups
+
+/usr/share/doc/setup*/uidgid ; documentacion de detalle de los usuarios y grupos reservados del sistema
+
+/etc/login.defs ; archivo de configuracion del id minimo de usuarios y grupos normales.
+
+/etc/group ; guarda todos los grupos del sistema
+
+/etc/passwd ; guarda informacion de los usuarios del sistema
+
+/etc/shadow ; guarda informacion de hashes de los passwords encriptados de los usuarios
