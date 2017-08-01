@@ -12,8 +12,12 @@
 
 /etc/login.defs ; archivo de configuracion del id minimo de usuarios y grupos normales.
 
-/etc/group ; guarda todos los grupos del sistema
-
 /etc/passwd ; guarda informacion de los usuarios del sistema
 
 /etc/shadow ; guarda informacion de hashes de los passwords encriptados de los usuarios
+
+/etc/group ; guarda todos los grupos del sistema
+
+/etc/gshadow ; ? almacena el password del grupo
+
+/etc/skel/ ; contiene configuracion por defecto del usuario, sus archivos son copiados a /home/usuario 
