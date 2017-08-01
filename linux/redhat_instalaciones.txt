@@ -1,0 +1,2 @@
+----- instalando samba -----
+sudo yum install samba samba-client samba-common
