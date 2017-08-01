@@ -16,7 +16,23 @@ sudo localectl set-keymap map ; establece el layout para el console layout y X11
 sudo localectl set-x11-keymap ; establece el layout para X11 window y console layout
   opcion: --no-convert; establece el keyboard layout solo para X11
 
+2. Configuring the Date and Time
 
+----- timedatectl command ----- 
+timedatectl ; muestra toda la informacion de hora: hora local, hora UTC, zona horaria, configuracion NTP, configuracion DST
+timedatectl set-time HH:MM:SS ; configura la hora del sistema(tanto hora local como en UTC) y el RTC en base a la hora local dada.
+timedatectl set-local-rtc true|false ; mantiene la hora RTC en local o en UTC(por defecto)
+timedatectl set-time YYYY-MM-DD ; configura la fecha del sistema
+timedatectl list-timezones ; lista las zonas horarias disponibles
+timedatectl set-timezone time_zone ; establece la zona horaria del sistema
+
+----- date command ----- 
+date ; muestra la hora del sistema
+date --utc; muestra la hora del sistema en UTC
+date +"format" ; muestra la hora del sistema formateada
+date --set HH:MM:SS ; cambia la hora actual del sistema(local y UTC) en base al argumento en hora local
+date --set HH:MM:SS --utc ; cambia la hora actual del sistema(local y UTC) en base al argumento dado en UTC
+date --set YYYY-MM-DD ; cambia la fecha actual del sistema
 
 ---------- Comandos averiguados ----------
 Version de CentOS:
