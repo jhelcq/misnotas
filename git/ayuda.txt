@@ -2,7 +2,7 @@
 
 git clone git@github.com:jhocolque/nombrerep_git.git
 
-//configurar el nombre y correo
+//configurar el nombre y correo para todos los repositorios del usuario es decir en ~/.gitconfig
 
 git config --global user.name 'jhocolque'
 git config --global user.email jhoelicq@hotmail.com
@@ -65,7 +65,7 @@ git checkout . ; retorna todos los archivos cambiados en el area de trabajo al e
 git branch -rd origin/rama ; elimina una rama remota en nuestra copia local
 git push origin :rama_remota ; se elimina 'rama_remota' en la copia remota
 
-git branch -d rama_local ; elimina una rama local forzando su eliminacion si no se integro con otra rama
+git branch -D rama_local ; elimina una rama local forzando su eliminacion si no se integro con otra rama
 
 git cherry-pick codigo_commit ; se copia un commit a la rama actual
 
@@ -89,3 +89,5 @@ Borrar commits del repositoreo remoto:
 
 	- Primero borrar los commits localmente luego subir los cambios al remoto con:
 		git push origin +rama  o  git push origin rama --force ; sube los cambios forzando los mismos
+
+git branch -m old_name new_name ; renombra el nombre de una rama
