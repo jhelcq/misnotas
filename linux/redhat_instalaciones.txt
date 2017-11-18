@@ -1,2 +1,34 @@
 ----- instalando samba -----
+Instalamos el repositorio de EPEL:
+	sudo yum install -y epel-release
 sudo yum install samba samba-client samba-common
+
+----- instalando awesome -----
+Awesome WM no esta disponible en los repositorios de Centos solo en los de Fedora 19(esto porque Centos 7 corresponde con Fedora 19).
+
+Decargar GPG de Fedora 19 desde https://getfedora.org/es/keys/:
+	wget https://getfedora.org/static/FB4B18E6.txt
+Verificar que la clave descargada es la oficial:
+	gpg --quiet --with-fingerprint clave.txt
+Con el anterior comando se deberia generar una huella de llave similar a la que ofrece el sitio oficial de llaves.
+
+Importamos la llave GPG al sistema:
+	sudo rpm --import llave.txt
+Agregamos el repositorio de Fedora 19:
+	sudo vim /etc/yum.repos.d/f19.repo
+[fedora]
+name=Fedora $releasever - $basearch
+failovermethod=priority
+baseurl=http://archives.fedoraproject.org/pub/archive/fedora/linux/releases/19/Everything/$basearch/os/
+enabled=1
+metadata_expire=7d
+gpgcheck=1
+priority=99
+
+Instalamos las prioridades del complemento YUM:
+	sudo yum install yum-plugin-priorities
+
+Instalamos Awesome:
+	sudo yum install -y awesome
+
+
