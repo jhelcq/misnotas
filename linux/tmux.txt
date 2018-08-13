@@ -1,4 +1,15 @@
-
 set -sg escape-time 0; quita el retraso al salir del modo insercion a modo normal en tmux
 
 Ctrl+ b [; sirve para activar el scroll usando re pag y av pag. Para salir de este modo apretar q
+
+tmux new -s myname ; crear sesion con nombre
+tmux detach ; desatarse de la sesion
+C-a $ ; ver nombre de la sesion
+tmux a -t myname; atarse a una sesion
+tmux send-keys -t nombre_sesion:nombre_window.nombre_panel ls ENTER ; envia y ejecuta un comando en una sesion de tmux
+C-a w ; lista de ventanas
+C-a q ; muestra los numeros de panel
+C-a d ; desata de una sesion
+tmux new -s nombre_sesion -d "comando"; crea una nueva sesion sin atarse a ella ejecutandose un comando en ella
+tmux kill-server; mata todos las sesiones
+tmux kill-session -t nombre_sesion; mata una sesion
