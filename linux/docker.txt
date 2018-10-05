@@ -1,0 +1,16 @@
+docker rm nombre_contenedor ; borra un contenedor
+docker rmi nombre_contenedor ; borra una imagen
+
+docker build -t cuentas-gee-gdrive_0 . ; crea imagen en base a Dockerfile
+docker run -it --name nombre_contenedor nombre_imagen ; crea un contenedor de una imagen
+docker attach nombre_contenedor ; ingresa a un contenedor en ejecuion al usuario root
+
+docker exec -it -u engineusu26 prueba_2 /bin/bash
+
+docker pull centos:centos7 ; recuperar una imegan
+
+docker images ; listar imagenes
+
+docker
+	ps ; lista los contenedores activos
+	ps -a ; lista todos los contenedores
