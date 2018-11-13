@@ -18,3 +18,5 @@ Comando u ; deshace cualquier cosa que se hizo en el texto
 
 Buscar con expresiones regulares:
 	:g/patron_busqueda ; en el patron_busqueda puede haber saltos de linea: \n
+
+di" ; elimina lo que esta entre comillas dobles

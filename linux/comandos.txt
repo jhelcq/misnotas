@@ -214,3 +214,11 @@ du -sh file_path ; muestra el tamano de un directorio
 comando 1>> stdout 2>> stderr ; redirecciona salida y error estandar a diferentes archivos
 
 eval `ssh-agent` ; usado al crear e iniciar un ssh key public, private 
+
+ps 
+	-A ; lista todos los procesos
+	-P ID; muestra info de un proceso
+	-Flww -p ID ; muestra informacion de un proceso
+
+pstree
+	-H ID -gn ; muestra arbol de procesos por orden aflabetico e ID de proceso, y muestra un proceso en particular
